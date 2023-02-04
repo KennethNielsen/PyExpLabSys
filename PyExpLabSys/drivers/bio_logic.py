@@ -1,6 +1,4 @@
-# pylint: disable=too-many-lines,too-few-public-methods
-# pylint: disable=too-many-lines,star-args,too-many-arguments,
-# pylint: disable=too-many-public-methods,
+# noqa: E265
 
 """This module is a Python implementation of a driver around the
 EC-lib DLL. It can be used to control at least the SP-150 potentiostat
@@ -101,10 +99,10 @@ except ImportError:
 
 ### Named tuples
 
-#:A named tuple used to defined a return data field for a technique
+#: A named tuple used to defined a return data field for a technique
 DataField = namedtuple("DataField", ["name", "type"])
-#:The TechniqueArgument instance, that are used as args arguments, are named
-#:tuples with the following fields (in order):
+#: The TechniqueArgument instance, that are used as args arguments, are named
+#: tuples with the following fields (in order):
 #:
 #: * label (str): the argument label mentioned in the :ref:`specification
 #:   <specification>`
@@ -1085,7 +1083,7 @@ class CV(Technique):
     * cycle (int)
     """
 
-    #:Data fields definition
+    #: Data fields definition
     data_fields = {
         "common": [
             DataField("Ec", c_float),
@@ -1187,7 +1185,7 @@ class CVA(Technique):
     * cycle (int)
     """
 
-    #:Data fields definition
+    #: Data fields definition
     data_fields = {
         "common": [
             DataField("Ec", c_float),
@@ -1407,7 +1405,7 @@ class CA(Technique):
     * cycle (int)
     """
 
-    #:Data fields definition
+    #: Data fields definition
     data_fields = {
         "common": [
             DataField("Ewe", c_float),
@@ -1511,7 +1509,7 @@ class SPEIS(Technique):
 
     """
 
-    #:Data fields definition
+    #: Data fields definition
     data_fields = {
         "common": [
             DataField("Ewe", c_float),
@@ -1632,7 +1630,7 @@ class MIR(Technique):
     The MIR technique returns no data.
     """
 
-    #:Data fields definition
+    #: Data fields definition
     data_fields = {}
 
     def __init__(self, rcmp_value):
@@ -1843,7 +1841,7 @@ def reverse_dict(dict_):
 
 
 ########## Constants
-#:Device number to device name translation dict
+#: Device number to device name translation dict
 DEVICE_CODES = {
     0: "KBIO_DEV_VMP",
     1: "KBIO_DEV_VMP2",
@@ -1874,7 +1872,7 @@ DEVICE_CODES = {
     255: "KBIO_DEV_UNKNOWN",
 }
 
-#:Firmware number to firmware name translation dict
+#: Firmware number to firmware name translation dict
 FIRMWARE_CODES = {
     0: "KBIO_FIRM_NONE",
     1: "KBIO_FIRM_INTERPR",
@@ -1884,7 +1882,7 @@ FIRMWARE_CODES = {
     10: "KBIO_FIRM_ECAL",
 }
 
-#:Amplifier number to aplifier name translation dict
+#: Amplifier number to aplifier name translation dict
 AMP_CODES = {
     0: "KBIO_AMPL_NONE",
     1: "KBIO_AMPL_2A",
@@ -1910,7 +1908,7 @@ AMP_CODES = {
     21: "KBIO_AMPL_4A10V",
 }
 
-#:I range number to I range name translation dict
+#: I range number to I range name translation dict
 I_RANGES = {
     0: "KBIO_IRANGE_100pA",
     1: "KBIO_IRANGE_1nA",
@@ -1929,7 +1927,7 @@ I_RANGES = {
     14: "KBIO_IRANGE_1pA",  # IRANGE_100pA + Igain x100
 }
 
-#:Bandwidth number to bandwidth name translation dict
+#: Bandwidth number to bandwidth name translation dict
 BANDWIDTHS = {
     1: "KBIO_BW_1",
     2: "KBIO_BW_2",
@@ -1942,7 +1940,7 @@ BANDWIDTHS = {
     9: "KBIO_BW_9",
 }
 
-#:E range number to E range name translation dict
+#: E range number to E range name translation dict
 E_RANGES = {
     0: "KBIO_ERANGE_2_5",
     1: "KBIO_ERANGE_5",
@@ -1950,10 +1948,10 @@ E_RANGES = {
     3: "KBIO_ERANGE_AUTO",
 }
 
-#:State number to state name translation dict
+#: State number to state name translation dict
 STATES = {0: "KBIO_STATE_STOP", 1: "KBIO_STATE_RUN", 2: "KBIO_STATE_PAUSE"}
 
-#:Technique number to technique name translation dict
+#: Technique number to technique name translation dict
 TECHNIQUE_IDENTIFIERS = {
     0: "KBIO_TECHID_NONE",
     100: "KBIO_TECHID_OCV",
@@ -2013,8 +2011,8 @@ TECHNIQUE_IDENTIFIERS = {
     170: "KBIO_TECHID_CASP",
 }
 
-#:Technique name to technique class translation dict. IMPORTANT. Add newly
-#:implemented techniques to this dictionary
+#: Technique name to technique class translation dict. IMPORTANT. Add newly
+#: implemented techniques to this dictionary
 TECHNIQUE_IDENTIFIERS_TO_CLASS = {
     "KBIO_TECHID_OCV": OCV,
     "KBIO_TECHID_CP": CP,
@@ -2024,7 +2022,7 @@ TECHNIQUE_IDENTIFIERS_TO_CLASS = {
     "KBIO_TECHID_SPEIS": SPEIS,
 }
 
-#:List of devices in the WMP4/SP300 series
+#: List of devices in the WMP4/SP300 series
 SP300SERIES = [
     "KBIO_DEV_SP100",
     "KBIO_DEV_SP200",
