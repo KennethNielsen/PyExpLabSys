@@ -76,18 +76,18 @@ def clean(context, dryrun=False):
 clean.__doc__ = clean.__doc__.format(", ".join(CLEAN_PATTERNS))
 
 
-@task(aliases=["pylint", "l"])
+@task(aliases=["flake8", "l"])
 def lint(context):
     """Run linting tool on all of PyExpLabSys"""
     with context.cd(THIS_DIR):
-        result = context.run("pylint PyExpLabSys")
+        result = context.run("flake8 PyExpLabSys")
         if result.return_code == 0:
             rprint("[bold green]Files linted. No errors.")
     return result.return_code
 
 
-@task(aliases=["pytest", "t"])
-def test(context):
+@task(aliases=["pytest", "test", "t"])
+def tests(context):
     """Run non-equipment dependent tests"""
     with context.cd(THIS_DIR):
         result = context.run("pytest --color yes tests/unittests/ tests/functional_test/")
@@ -102,6 +102,15 @@ def dependencies(context):
     context.run("python -m pip install --upgrade pip")
     context.run("pip install --upgrade -r requirements.txt")
     context.run("pip install --upgrade -r requirements-dev.txt")
+
+
+@task
+def setup(context):
+    """Install dependencies and perform setup tasks"""
+    dependencies(context)
+    with context.cd(THIS_DIR):
+        context.run("pre-commit autoupdate")
+        context.run("python -m pip install -e .")
 
 
 @task(aliases=["black", "f", "b"])
@@ -119,12 +128,24 @@ def check_format(context):
             rprint("[bold green]Code format checked. No issues.")
     return result.return_code
 
+
+@task(aliases=["pc"])
+def pre_commit(context):
+    """Execute pre-commit checkers/fixers"""
+    with context.cd(THIS_DIR):
+        result = context.run("pre-commit run --all-files --color always")
+        if result.return_code == 0:
+            rprint("[bold green]Pre-commit checkers/fixers all good!")
+    return result.return_code
+
+
 @task(aliases=["check", "c"])
 def checks(context):
     """Check the code with flake8 and mypy"""
     combined_return_code = check_format(context)
-    combined_return_code += lint(context)
-    combined_return_code += test(context)
+    # combined_return_code += lint(context)
+    combined_return_code += tests(context)
+    combined_return_code += pre_commit(context)
     if combined_return_code == 0:
         print()
         print(r"+----------+")
