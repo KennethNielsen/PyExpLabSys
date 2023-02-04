@@ -26,15 +26,28 @@ repos:
     -   id: check-executables-have-shebangs
         files: PyExpLabSys
     -   id: check-json
+    -   id: check-merge-conflict
     -   id: check-shebang-scripts-are-executable
         files: PyExpLabSys
         exclude: |
           (?x)^(
               PyExpLabSys/thirdparty/olefile.py
           )$
+    -   id: check-symlinks
+    -   id: check-toml
     -   id: check-yaml
         files: PyExpLabSys
+    -   id: debug-statements
+        files: PyExpLabSys
+        exclude: |
+          (?x)^(
+              PyExpLabSys/common/massspec/test.py|
+              PyExpLabSys/apps/picture_logbook.py|
+              PyExpLabSys/apps/rampreader.py
+          )$
+    -   id: detect-private-key
     -   id: end-of-file-fixer
         files: PyExpLabSys
+    -   id: requirements-txt-fixer
     -   id: trailing-whitespace
         files: PyExpLabSys

@@ -1,6 +1,7 @@
-invoke
-pytest
 black
-rich
 flake8
 Flake8-pyproject
+invoke
+pre-commit
+pytest
+rich

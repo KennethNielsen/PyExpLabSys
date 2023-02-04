@@ -1,8 +1,8 @@
-six
+minimalmodbus
 numpy
-smbus
-pyyaml
 pymysql
 pyserial
+pyyaml
 requests
-minimalmodbus
+six
+smbus
