@@ -37,7 +37,7 @@ CLASSIFIERS = [
     "Topic :: Scientific/Engineering :: Physics",
     "Topic :: System :: Hardware :: Hardware Drivers",
     "Topic :: Terminals :: Serial",
-    "Topic :: Terminals :: Telnet",    
+    "Topic :: Terminals :: Telnet",
 ]
 with open('requirements.txt') as file_:
     INSTALL_REQUIRES = [r.strip() for r in list(file_)]

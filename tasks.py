@@ -37,7 +37,7 @@ def open_docs(context):
     with context.cd(THIS_DIR):
         context.run(f"xdg-open {index_path}")
 
-        
+
 CLEAN_PATTERNS = ("__pycache__", "*.pyc", "*.pyo", ".mypy_cache", "build")
 
 

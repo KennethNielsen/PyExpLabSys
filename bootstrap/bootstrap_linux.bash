@@ -402,7 +402,7 @@ if [ $1 == "abelec" ];then
     sudo rm /etc/modprobe.d/raspi-blacklist.conf
     echogood "Removed raspi-blacklist"
     cd ~/
-    
+
     export ABDIR=$HOME/ABElectronics_Python_Libraries/
     if [ ! -d "$ABDIR" ]; then
 	git clone https://github.com/abelectronicsuk/ABElectronics_Python_Libraries.git
