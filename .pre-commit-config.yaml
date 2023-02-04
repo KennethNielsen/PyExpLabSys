@@ -4,5 +4,8 @@ repos:
     files: "PyExpLabSys"
     hooks:
     -   id: check-yaml
+        files: PyExpLabSys
     -   id: end-of-file-fixer
+        files: PyExpLabSys
     -   id: trailing-whitespace
+        files: PyExpLabSys

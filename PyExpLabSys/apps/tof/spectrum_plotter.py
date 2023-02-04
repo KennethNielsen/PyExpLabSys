@@ -454,7 +454,7 @@ if __name__ == "__main__":
 
     FIT_INFO['24.57'] = {}
     FIT_INFO['24.57']['flighttime'] = [24.57]
-    FIT_INFO['24.57']['names'] = ['Oil II'] 
+    FIT_INFO['24.57']['names'] = ['Oil II']
     """
     # FIT_INFO['11.82'] = {}
     # FIT_INFO['11.82']['flighttime'] = [11.81, 11.831]

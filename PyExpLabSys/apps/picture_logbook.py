@@ -160,5 +160,3 @@ class PictureLogbook(object):
 if __name__ == '__main__':
     LOGBOOK = PictureLogbook()
     LOGBOOK.main()
-
-

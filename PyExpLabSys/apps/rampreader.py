@@ -85,14 +85,14 @@ class RampReader():
         fig = plt.figure()
         axis = fig.add_subplot(1, 1, 1)
         axis2 = axis.twinx()
-        
+
         plot_lines = axis2.plot(time_range, plots['temp'], linestyle='-', label = 'Temp', color='k')
         for key in keys:
             plot_lines += axis.plot(time_range, plots[key], linestyle='-', label=key)
-        
+
         labels = [l.get_label() for l in plot_lines]
         axis.legend(plot_lines, labels)
-        
+
         axis.set_ylabel('Value')
         #axis2.set_ylabel('Temperature')
         axis.set_xlabel('Time')

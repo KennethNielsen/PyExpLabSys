@@ -43,7 +43,7 @@ def testchannel():
     channel1_dict['mass'] = 12.0
     channel2 = Channel.from_dict(channel1_dict)
     print channel2
-    
+
 
 if __name__ == '__main__':
     testchannel()

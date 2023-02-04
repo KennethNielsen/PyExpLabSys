@@ -151,7 +151,7 @@ class DataQ(object):
         command = 'dout ' + value
         res = self.comm(command)
         return res
-    
+
     def set_outputs(self, ch0=False, ch1=False, ch2=False, ch3=False):
         value = 15 - int(ch0)*2**0 - int(ch1)*2**1 - int(ch2)*2**2 - int(ch3)*2**3
         command = 'dout ' + str(value)
