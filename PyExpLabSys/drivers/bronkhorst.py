@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 """ Driver for Bronkhorst flow controllers, including simple test case """
 from __future__ import print_function
 import time

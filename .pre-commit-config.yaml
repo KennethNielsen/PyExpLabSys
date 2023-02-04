@@ -1,8 +1,37 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
-    files: "PyExpLabSys"
+    rev: v4.4.0
     hooks:
+    -   id: check-added-large-files
+    -   id: check-ast
+        exclude: |
+            (?x)^(
+                PyExpLabSys/common/massspec/test.py|
+                PyExpLabSys/apps/picture_logbook.py|
+                PyExpLabSys/apps/rampreader.py
+            )$
+        files: PyExpLabSys
+    -   id: check-builtin-literals
+        exclude: |
+          (?x)^(
+              PyExpLabSys/common/massspec/test.py|
+              PyExpLabSys/apps/picture_logbook.py|
+              PyExpLabSys/apps/rampreader.py
+          )$
+        files: PyExpLabSys
+    -   id: check-case-conflict
+    -   id: check-docstring-first
+        files: PyExpLabSys
+        exclude: PyExpLabSys/apps/microreactor_livevalue_web.py
+    -   id: check-executables-have-shebangs
+        files: PyExpLabSys
+    -   id: check-json
+    -   id: check-shebang-scripts-are-executable
+        files: PyExpLabSys
+        exclude: |
+          (?x)^(
+              PyExpLabSys/thirdparty/olefile.py
+          )$
     -   id: check-yaml
         files: PyExpLabSys
     -   id: end-of-file-fixer
