@@ -1,5 +1,6 @@
 invoke
-pylint
 pytest
 black
 rich
+flake8
+Flake8-pyproject

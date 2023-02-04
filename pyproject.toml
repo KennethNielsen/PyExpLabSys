@@ -11,3 +11,14 @@ extend-exclude = '''
   | PyExpLabSys/apps/rampreader.py
 )
 '''
+
+[tool.flake8]
+max-line-length = 95
+# ignore = ['E231', 'E241']
+# per-file-ignores = [
+#     '__init__.py:F401',
+# ]
+# count = true
+exclude = [
+    "PyExpLabSys/thirdparty/olefile.py",
+]
